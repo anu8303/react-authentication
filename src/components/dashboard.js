@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
+    const navigate = useNavigate();
     const handleLogout = () =>{
         localStorage.removeItem("user");
         navigate("/");
