@@ -7,6 +7,10 @@ import { useNavigate } from "react-router-dom";
 const Dashboard = () => {
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState("");
+    const handleLogout = () =>{
+        localStorage.removeItem("user");
+        navigate("/");
+    }   
 
     // Fetch Countries Data
     useEffect(() => {
@@ -24,6 +28,7 @@ const Dashboard = () => {
 
     return (
         <div>
+            <h2>Welcome to the dashboard</h2>
             <h2>Select a Country</h2>
             <select onChange={(e) => setSelectedCountry(e.target.value)} value={selectedCountry}>
                 <option value="">Select a country</option>
@@ -33,6 +38,9 @@ const Dashboard = () => {
                     </option>
                 ))}
             </select>
+            <button onClick={handleLogout}>
+            Logout
+            </button>
         </div>
     );
 };
